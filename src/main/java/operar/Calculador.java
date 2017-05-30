@@ -4,6 +4,18 @@ import arvore.No;
 
 public class Calculador {
 
+	public static No pai(No raiz, No no) {
+		if (raiz == null || no == null) return null;
+		
+		if (no.valor < raiz.valor) {
+			return pai(raiz.esq, no);
+		} else if (no.valor > raiz.valor) {
+			return pai(raiz.dir, no);
+		} else {
+			return raiz;
+		}
+	}
+	
 	public static int altura(No raiz) {
 		if (raiz == null) return -1;
 		
