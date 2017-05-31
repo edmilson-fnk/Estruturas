@@ -14,12 +14,16 @@ public class No {
 		this.valor = valor;
 	}
 	
-	public void esquerda(int valor) {
+	public No esquerda(int valor) {
 		this.esq = new No(valor);
+		
+		return this;
 	}
 	
-	public void direita(int valor) {
+	public No direita(int valor) {
 		this.dir = new No(valor);
+		
+		return this;
 	}
 	
 	public void inserir(int valor) {

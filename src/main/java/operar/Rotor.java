@@ -42,12 +42,27 @@ public class Rotor {
 	
 	public static No rotacionar(No desbalanceado, No raiz) {
 		if (desbalanceado == null) return raiz;
-		return null;
-//		No pai = Calculador.pai(raiz, desbalanceado);
-//		
-//		if (desbalanceado.fb == -2 && desbalanceado.esq.fb < 0) {
-//			novaRaiz = rotaca
-//		}
+		No novaRaiz = null, pai = Calculador.pai(raiz, desbalanceado);
+		
+		if (desbalanceado.fb == -2 && desbalanceado.esq.fb < 0) {
+			novaRaiz = simplesDireita(desbalanceado);
+			if (pai != null) pai.esq = novaRaiz;
+		} else if (desbalanceado.fb == 2 && desbalanceado.dir.fb > 0) {
+			novaRaiz = simplesEsquerda(desbalanceado);
+			if (pai != null) pai.dir = novaRaiz;
+		} else if (desbalanceado.fb == -2 && desbalanceado.esq.fb >= 0) {
+			novaRaiz = duplaDireita(desbalanceado);
+			if (pai != null) pai.esq = novaRaiz;
+		} else if (desbalanceado.fb == 2 && desbalanceado.dir.fb <= 0) {
+			novaRaiz = duplaEsquerda(desbalanceado);
+			if (pai != null) pai.dir = novaRaiz;
+		}
+		
+		if (pai != null) {
+			return pai;
+		} else {
+			return novaRaiz;
+		}
 	}
 
 }

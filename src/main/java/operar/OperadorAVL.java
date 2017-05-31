@@ -11,6 +11,8 @@ public class OperadorAVL extends Operador {
 	public static No inserir(No raiz, Integer... chaves) {
 		for (Integer chave : chaves) {
 			raiz = inserir(raiz, chave);
+			raiz.empilhar();
+			System.out.println();
 		}
 		
 		return raiz;
@@ -24,7 +26,7 @@ public class OperadorAVL extends Operador {
 		No desbalanceado = buscarDesbalanceado(raiz);
 		raiz = Rotor.rotacionar(desbalanceado, raiz);
 		
-		System.out.println("Desbalanceado: " + desbalanceado);
+		Calculador.atualizarFatores(raiz);
 		
 		return raiz;
 	}

@@ -8,11 +8,19 @@ public class Calculador {
 		if (raiz == null || no == null) return null;
 		
 		if (no.valor < raiz.valor) {
-			return pai(raiz.esq, no);
+			if (raiz.esq != null && raiz.esq.valor == no.valor) {
+				return raiz;
+			} else {
+				return pai(raiz.esq, no);
+			}
 		} else if (no.valor > raiz.valor) {
-			return pai(raiz.dir, no);
+			if (raiz.dir != null && raiz.dir.valor == no.valor) {
+				return raiz;
+			} else {
+				return pai(raiz.dir, no);
+			}
 		} else {
-			return raiz;
+			return null;
 		}
 	}
 	
