@@ -1,7 +1,7 @@
 package arvore.operar;
 
 import arvore.ArvoreAVL;
-import arvore.No;
+import arvore.NoAVL;
 
 public class OperadorAVL extends Operador {
 
@@ -9,7 +9,7 @@ public class OperadorAVL extends Operador {
 		return new ArvoreAVL(inserir(null, chaves));
 	}
 	
-	public static No inserir(No raiz, Integer... chaves) {
+	public static NoAVL inserir(NoAVL raiz, Integer... chaves) {
 		for (Integer chave : chaves) {
 			raiz = inserir(raiz, chave);
 		}
@@ -17,8 +17,8 @@ public class OperadorAVL extends Operador {
 		return raiz;
 	}
 	
-	public static No inserir(No raiz, Integer chave) {
-		if (raiz == null) return new No(chave);
+	public static NoAVL inserir(NoAVL raiz, Integer chave) {
+		if (raiz == null) return new NoAVL(chave);
 		
 		if (chave < raiz.valor) {
 			raiz.esq = inserir(raiz.esq, chave);

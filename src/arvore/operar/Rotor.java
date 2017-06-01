@@ -1,25 +1,25 @@
 package arvore.operar;
 
-import arvore.No;
+import arvore.NoAVL;
 
 public class Rotor {
 
-	public static No duplaEsquerda(No raiz) {
+	public static NoAVL duplaEsquerda(NoAVL raiz) {
 		raiz.dir = simplesDireita(raiz.dir);
 		raiz = simplesEsquerda(raiz);
 		
 		return raiz;
 	}
 
-	public static No duplaDireita(No raiz) {
+	public static NoAVL duplaDireita(NoAVL raiz) {
 		raiz.esq = simplesEsquerda(raiz.esq);
 		raiz = simplesDireita(raiz);
 		
 		return raiz;
 	}
 	
-	public static No simplesEsquerda(No raiz) {
-		No aux = raiz.dir;
+	public static NoAVL simplesEsquerda(NoAVL raiz) {
+		NoAVL aux = raiz.dir;
 		
 		raiz.fb = 0;
 		aux.fb = 0;
@@ -30,8 +30,8 @@ public class Rotor {
 		return aux;
 	}
 	
-	public static No simplesDireita(No raiz) {
-		No aux = raiz.esq;
+	public static NoAVL simplesDireita(NoAVL raiz) {
+		NoAVL aux = raiz.esq;
 		
 		raiz.fb = 0;
 		aux.fb = 0;
@@ -42,7 +42,7 @@ public class Rotor {
 		return aux;
 	}
 	
-	public static No rotacionar(No no) {
+	public static NoAVL rotacionar(NoAVL no) {
 		if (no == null) return no;
 		
 		if (no.fb == -2 && no.esq.fb < 0) {

@@ -2,6 +2,7 @@ package arvore.operar;
 
 import arvore.Arvore;
 import arvore.No;
+import arvore.NoAVL;
 
 public class Operador {
 
@@ -11,7 +12,30 @@ public class Operador {
 		return raiz;
 	}
 	
+	public static NoAVL empilharAVL(NoAVL raiz) {
+		empilhar(raiz, 0);
+		
+		return raiz;
+	}
+	
 	private static void empilhar(No raiz, int nivel) {
+		if (raiz == null) return;
+		
+		for (int i = 0; i < nivel; i++) System.out.print("  ");
+		System.out.println(raiz);
+		
+		if (raiz.esq != null) {
+			System.out.print("E");
+			empilhar(raiz.esq, nivel + 1);
+		}
+		
+		if (raiz.dir!= null) {
+			System.out.print("D");
+			empilhar(raiz.dir, nivel + 1);
+		}
+	}
+	
+	private static void empilhar(NoAVL raiz, int nivel) {
 		if (raiz == null) return;
 		
 		for (int i = 0; i < nivel; i++) System.out.print("  ");

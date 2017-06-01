@@ -1,6 +1,7 @@
 package arvore.operar;
 
 import arvore.No;
+import arvore.NoAVL;
 
 public class Calculador {
 
@@ -10,7 +11,7 @@ public class Calculador {
 		return Math.max(altura(raiz.esq), altura(raiz.dir)) + 1;
 	}
 	
-	public static void atualizarFatores(No raiz) {
+	public static void atualizarFatores(NoAVL raiz) {
 		if (raiz == null) return;
 		
 		atualizarFatorNo(raiz);
@@ -18,7 +19,7 @@ public class Calculador {
 		atualizarFatores(raiz.dir);
 	}
 	
-	public static void atualizarFatorNo(No raiz) {
+	public static void atualizarFatorNo(NoAVL raiz) {
 		raiz.fb = altura(raiz.dir) - altura(raiz.esq);
 	}
 	
