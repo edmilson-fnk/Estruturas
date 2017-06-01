@@ -1,5 +1,6 @@
 package operar;
 
+import arvore.Arvore;
 import arvore.No;
 
 public class Operador {
@@ -35,8 +36,8 @@ public class Operador {
 		mostrar(raiz.dir);
 	}
 	
-	public static No arvore(Integer... chaves) {
-		return inserir(null, chaves);
+	public static Arvore arvore(Integer... chaves) {
+		return new Arvore(inserir(null, chaves));
 	}
 	
 	public static No inserir(No raiz, Integer... chaves) {

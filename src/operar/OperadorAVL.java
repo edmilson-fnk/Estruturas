@@ -1,56 +1,38 @@
 package operar;
 
+import arvore.ArvoreAVL;
 import arvore.No;
 
 public class OperadorAVL extends Operador {
 
-	public static No arvore(Integer... chaves) {
-		return inserir(null, chaves);
+	public static ArvoreAVL arvore(Integer... chaves) {
+		return new ArvoreAVL(inserir(null, chaves));
 	}
 	
 	public static No inserir(No raiz, Integer... chaves) {
 		for (Integer chave : chaves) {
 			raiz = inserir(raiz, chave);
-			raiz.empilhar();
-			System.out.println();
 		}
 		
 		return raiz;
 	}
 	
 	public static No inserir(No raiz, Integer chave) {
-		raiz = Operador.inserir(raiz, chave);
+		if (raiz == null) return new No(chave);
 		
-		Calculador.atualizarFatores(raiz);
-		
-		No desbalanceado = buscarDesbalanceado(raiz);
-		raiz = Rotor.rotacionar(desbalanceado, raiz);
-		
-		Calculador.atualizarFatores(raiz);
-		
-		return raiz;
-	}
-	
-	private static No buscarDesbalanceado(No raiz) {
-		if (raiz == null) return null;
-		
-		if (raiz.fb < -1 || raiz.fb > 1) {
-			return raiz;
+		if (chave < raiz.valor) {
+			raiz.esq = inserir(raiz.esq, chave);
+		} else if (chave > raiz.valor) {
+			raiz.dir = inserir(raiz.dir, chave);
 		} else {
-			return buscarDesbalanceado(raiz.esq, raiz.dir);
+			return raiz; // não são permitidas chaves duplicadas
 		}
-	}
-	
-	private static No buscarDesbalanceado(No esq, No dir) {
-		if (esq == null && dir == null) return null;
 		
-		No desb = buscarDesbalanceado(esq);
+		// atualizar FB do nó
+		Calculador.atualizarFatorNo(raiz);
 		
-		if (desb == null) {
-			return buscarDesbalanceado(dir);
-		} else {
-			return desb;
-		}
+		// rotacionar, quando necessário e retornar a nova raiz
+		return Rotor.rotacionar(raiz);
 	}
 	
 }

@@ -1,7 +1,5 @@
 package arvore;
 
-import operar.Operador;
-
 public class No {
 
 	public No esq;
@@ -24,18 +22,6 @@ public class No {
 		this.dir = new No(valor);
 		
 		return this;
-	}
-	
-	public void inserir(int valor) {
-		Operador.inserir(this, valor);
-	}
-
-	public void mostrar() {
-		Operador.mostrar(this);
-	}
-
-	public void empilhar() {
-		Operador.empilhar(this);
 	}
 	
 	@Override

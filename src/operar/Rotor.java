@@ -19,50 +19,43 @@ public class Rotor {
 	}
 	
 	public static No simplesEsquerda(No raiz) {
-		No novaRaiz, tmp;
+		No aux = raiz.dir;
 		
-		novaRaiz = raiz.dir;
-		tmp = novaRaiz.esq;
-		novaRaiz.esq = raiz;
-		raiz.dir = tmp;
+		raiz.fb = 0;
+		aux.fb = 0;
 		
-		return novaRaiz;
+		raiz.dir = aux.esq;
+		aux.esq = raiz;
+		
+		return aux;
 	}
 	
 	public static No simplesDireita(No raiz) {
-		No novaRaiz, tmp;
+		No aux = raiz.esq;
 		
-		novaRaiz = raiz.esq;
-		tmp = novaRaiz.dir;
-		novaRaiz.dir = raiz;
-		raiz.esq = tmp;
+		raiz.fb = 0;
+		aux.fb = 0;
 		
-		return novaRaiz;
+		raiz.esq = aux.dir;
+		aux.dir = raiz;
+		
+		return aux;
 	}
 	
-	public static No rotacionar(No desbalanceado, No raiz) {
-		if (desbalanceado == null) return raiz;
-		No novaRaiz = null, pai = Calculador.pai(raiz, desbalanceado);
+	public static No rotacionar(No no) {
+		if (no == null) return no;
 		
-		if (desbalanceado.fb == -2 && desbalanceado.esq.fb < 0) {
-			novaRaiz = simplesDireita(desbalanceado);
-			if (pai != null) pai.esq = novaRaiz;
-		} else if (desbalanceado.fb == 2 && desbalanceado.dir.fb > 0) {
-			novaRaiz = simplesEsquerda(desbalanceado);
-			if (pai != null) pai.dir = novaRaiz;
-		} else if (desbalanceado.fb == -2 && desbalanceado.esq.fb >= 0) {
-			novaRaiz = duplaDireita(desbalanceado);
-			if (pai != null) pai.esq = novaRaiz;
-		} else if (desbalanceado.fb == 2 && desbalanceado.dir.fb <= 0) {
-			novaRaiz = duplaEsquerda(desbalanceado);
-			if (pai != null) pai.dir = novaRaiz;
+		if (no.fb == -2 && no.esq.fb < 0) {
+			return simplesDireita(no);
+		} else if (no.fb == 2 && no.dir.fb > 0) {
+			return simplesEsquerda(no);
+		} else if (no.fb == -2 && no.esq.fb >= 0) {
+			return duplaDireita(no);
+		} else if (no.fb == 2 && no.dir.fb <= 0) {
+			return duplaEsquerda(no);
 		}
 		
-		if (pai != null) {
-			return pai;
-		} else {
-			return novaRaiz;
-		}
+		return no;
 	}
 
 }
