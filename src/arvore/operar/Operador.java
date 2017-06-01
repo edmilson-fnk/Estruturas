@@ -1,4 +1,4 @@
-package operar;
+package arvore.operar;
 
 import arvore.Arvore;
 import arvore.No;
@@ -11,7 +11,7 @@ public class Operador {
 		return raiz;
 	}
 	
-	public static void empilhar(No raiz, int nivel) {
+	private static void empilhar(No raiz, int nivel) {
 		if (raiz == null) return;
 		
 		for (int i = 0; i < nivel; i++) System.out.print("  ");
@@ -48,29 +48,15 @@ public class Operador {
 		return raiz;
 	}
 	
-	public static No inserir(No raiz, Integer chave) {
-		return inserir(raiz, chave, raiz);
-	}
-	
-	private static No inserir(No raiz, Integer chave, No raizInicial) {
+	private static No inserir(No raiz, Integer chave) {
 		if (raiz == null) return new No(chave);
 		
 		if (chave < raiz.valor) {
-			if (raiz.esq == null) {
-				raiz.esquerda(chave);
-				return raizInicial;
-			} else {
-				return inserir(raiz.esq, chave, raizInicial);
-			}
+			raiz.esq = inserir(raiz.esq, chave);
 		} else if (chave > raiz.valor) {
-			if (raiz.dir == null) {
-				raiz.direita(chave);
-				return raizInicial;
-			} else {
-				return inserir(raiz.dir, chave, raizInicial);
-			}
-		} else {
-			return raizInicial;
+			raiz.dir = inserir(raiz.dir, chave);
 		}
+		
+		return raiz;
 	}
 }

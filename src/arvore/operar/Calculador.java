@@ -1,4 +1,4 @@
-package operar;
+package arvore.operar;
 
 import arvore.No;
 
