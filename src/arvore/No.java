@@ -6,6 +6,7 @@ public class No {
 	public No dir;
 	
 	public Integer valor;
+	public int fb;
 	
 	public No(Integer valor) {
 		this.valor = valor;
@@ -25,7 +26,7 @@ public class No {
 	
 	@Override
 	public String toString() {
-		return valor.toString();
+		return valor + " [" + fb + "]";
 	}
 	
 }

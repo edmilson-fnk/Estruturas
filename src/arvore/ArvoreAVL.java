@@ -4,15 +4,13 @@ import arvore.operar.Operador;
 
 public class ArvoreAVL extends Arvore {
 
-	public NoAVL raiz;
-	
-	public ArvoreAVL(NoAVL raiz) {
+	public ArvoreAVL(No raiz) {
 		super(raiz);
 		this.raiz = raiz;
 	}
 
 	public void empilhar() {
-		Operador.empilharAVL(this.raiz);
+		Operador.empilhar(this.raiz);
 	}
 	
 }
