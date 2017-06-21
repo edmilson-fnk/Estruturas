@@ -2,7 +2,7 @@ package ordenacao;
 
 import util.Vetores;
 
-public class InsertionSort {
+public class SelectionSort {
 
 	public static void main(String[] args) {
 		Integer[] vetor = new Integer[]{0,8,4,3,1,5,7,2,6};
