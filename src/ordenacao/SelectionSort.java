@@ -2,19 +2,23 @@ package ordenacao;
 
 import util.Vetores;
 
-public class SelectionSort {
+public class SelectionSort implements Ordenador {
 
 	public static void main(String[] args) {
 		Integer[] vetor = new Integer[]{0,8,4,3,1,5,7,2,6};
 		
 		Vetores.mostra(vetor);
 		
-		selectionsort(vetor);
+		aplicar(vetor);
 		
 		Vetores.mostra(vetor);
 	}
 	
-	public static Integer[] selectionsort(Integer vetor[]) {
+	public static Integer[] aplicar(Integer[] vetor) {
+		return new SelectionSort().ordenar(vetor);
+	}
+	
+	public Integer[] ordenar(Integer[] vetor) {
 		for (int i = 0; i < vetor.length - 1; i++) {
 			int min = i;
 			
