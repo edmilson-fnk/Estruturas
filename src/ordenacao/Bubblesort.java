@@ -14,7 +14,7 @@ public class Bubblesort {
 		Vetores.mostra(vetor);
 	}
 	
-	public static void bubblesort(Integer[] vetor) {
+	public static Integer[] bubblesort(Integer[] vetor) {
 		for (int i = 0; i < vetor.length; i++) {
 			for (int j = 0; j < vetor.length - 1 - i; j++) {
 				if (vetor[j] > vetor[j + 1]) {
@@ -24,6 +24,8 @@ public class Bubblesort {
 				}
 			}
 		}
+		
+		return vetor;
 	}
 	
 }
