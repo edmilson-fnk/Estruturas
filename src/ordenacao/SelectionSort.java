@@ -7,11 +7,11 @@ public class SelectionSort implements Ordenador {
 	public static void main(String[] args) {
 		Integer[] vetor = new Integer[]{0,8,4,3,1,5,7,2,6};
 		
-		Vetores.mostra(vetor);
+		Vetores.mostrar(vetor);
 		
 		aplicar(vetor);
 		
-		Vetores.mostra(vetor);
+		Vetores.mostrar(vetor);
 	}
 	
 	public static Integer[] aplicar(Integer[] vetor) {
@@ -19,17 +19,20 @@ public class SelectionSort implements Ordenador {
 	}
 	
 	public Integer[] ordenar(Integer[] vetor) {
-		for (int i = 0; i < vetor.length - 1; i++) {
-			int min = i;
-			
-			for (int j = i + 1; j < vetor.length; j++) {
+		// Percorrer o vetor
+		for (int iteracao = 0; iteracao < vetor.length - 1; iteracao++) {
+			int min = iteracao;
+
+			// Identificar menor elemento
+			for (int j = iteracao + 1; j < vetor.length; j++) {
 				if (vetor[j] < vetor[min])
 					min = j;
 			}
 			
-			if (i != min) {
-				Integer aux = vetor[i];
-				vetor[i] = vetor[min];
+			// Realizar a troca entre as posições "menor" e "iteracao"
+			if (iteracao != min) {
+				Integer aux = vetor[iteracao];
+				vetor[iteracao] = vetor[min];
 				vetor[min] = aux;
 			}
 		}

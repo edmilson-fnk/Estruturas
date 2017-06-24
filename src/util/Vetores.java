@@ -15,7 +15,7 @@ public class Vetores {
 		return sb.toString();
 	}
 	
-	public static void mostra(Object[] vetor) {
+	public static void mostrar(Object[] vetor) {
 		System.out.println(toString(vetor));
 	}
 	
