@@ -10,8 +10,16 @@ public class Arvore {
 		this.raiz = raiz;
 	}
 
-	public void inserir(int valor) {
-		Operador.inserir(this.raiz, valor);
+	public Arvore inserir(int valor) {
+		this.raiz = Operador.inserir(this.raiz, valor);
+		
+		return this;
+	}
+
+	public Arvore remover(int valor) {
+		this.raiz = Operador.remover(this.raiz, valor);
+		
+		return this;
 	}
 
 	public void mostrar() {

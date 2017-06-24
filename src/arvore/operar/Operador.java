@@ -59,4 +59,40 @@ public class Operador {
 		
 		return raiz;
 	}
+
+	public static No remover(No raiz, int valor) {
+		if (raiz == null) return null;
+		
+		if (valor < raiz.valor) {
+			raiz.esq = remover(raiz.esq, valor);
+			return raiz;
+		} else if (valor > raiz.valor) {
+			raiz.dir = remover(raiz.dir, valor);
+			return raiz;
+		} else {
+			No novaRaiz = removerRaiz(raiz);
+			
+			return novaRaiz;
+		}
+	}
+
+	private static No removerRaiz(No raiz) {
+		if (raiz.esq == null) return raiz.dir;
+		
+		No pai = raiz, anterior = raiz.esq;
+		while (anterior.dir != null) {
+			pai = anterior;
+			anterior = anterior.dir;
+		}
+		
+		if (pai != raiz) {
+			pai.dir = anterior.esq;
+			anterior.esq = raiz.esq;
+		}
+		
+		anterior.dir = raiz.dir;
+		
+		return anterior;
+	}
+	
 }
