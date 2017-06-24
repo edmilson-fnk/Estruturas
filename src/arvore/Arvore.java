@@ -6,18 +6,32 @@ public class Arvore {
 
 	public No raiz;
 	
+	public Arvore(int valor) {
+		this.raiz = new No(valor);
+	}
+
 	public Arvore(No raiz) {
 		this.raiz = raiz;
 	}
 
-	public Arvore inserir(int valor) {
-		this.raiz = Operador.inserir(this.raiz, valor);
+	public Arvore() { }
+
+	public Arvore inserir(Integer... valor) {
+		if (valor != null) {
+			for (Integer i : valor) {
+				this.raiz = Operador.inserir(this.raiz, i);
+			}
+		}
 		
 		return this;
 	}
 
-	public Arvore remover(int valor) {
-		this.raiz = Operador.remover(this.raiz, valor);
+	public Arvore remover(Integer... valor) {
+		if (valor != null) {
+			for (Integer i : valor) {
+				this.raiz = Operador.remover(this.raiz, i);
+			}
+		}
 		
 		return this;
 	}
