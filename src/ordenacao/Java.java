@@ -25,32 +25,41 @@ public class Java {
 		System.out.println("Antes:");
 		Vetores.mostrar(vetor);
 		
-		Comparator<Integer> comparator = new Comparator<Integer>() {
+		Comparator<Integer> comparatorMaluco = new Comparator<Integer>() {
 			@Override
-			public int compare(Integer o1, Integer o2) {
-				if (o1 % 2 == 0 && o2 % 2 == 0) {
-					if (o1 < o2) {
+			public int compare(Integer num1, Integer num2) {
+				if (num1 % 2 == 0 && num2 % 2 == 0) {
+					if (num1 < num2) {
 						return 1;
-					} else if (o1 > o2) {
+					} else if (num1 > num2) {
 						return -1;
 					} else {
 						return 0;
 					}
-				} else if (o1 % 2 == 1 && o2 % 2 == 1) {
-					if (o1 < o2) {
+				} else if (num1 % 2 == 1 && num2 % 2 == 1) {
+					if (num1 < num2) {
 						return -1;
-					} else if (o1 > o2) {
+					} else if (num1 > num2) {
 						return 1;
 					} else {
 						return 0;
 					}
-				} else if (o1 % 2 == 1 && o2 % 2 == 0) {
+				} else if (num1 % 2 == 1 && num2 % 2 == 0) {
 					return -1;
 				} else {
 					return 1;
 				}
 			}
 		};
+		
+		
+		Comparator<Integer> comparator = new Comparator<Integer>() {
+			@Override
+			public int compare(Integer num1, Integer num2) {
+				return num1.compareTo(num2);
+			}
+		};
+		
 		Arrays.sort(vetor, comparator);
 		
 		System.out.println("Depois:");
@@ -66,7 +75,7 @@ public class Java {
 		Comparator<Integer> comparator = new Comparator<Integer>() {
 			@Override
 			public int compare(Integer o1, Integer o2) {
-				return -1;
+				return o1.compareTo(o2);
 			}
 		};
 		
