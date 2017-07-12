@@ -7,7 +7,6 @@ public class Fibonacci {
 	public static void main(String[] args) {
 		Integer[] vetor = vetorFibonacci(10);
 		
-		Mostra.posicoes(vetor);
 		Mostra.vetor(vetor);
 		
 	}
