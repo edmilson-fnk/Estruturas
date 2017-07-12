@@ -1,17 +1,17 @@
 package ordenacao;
 
-import util.Vetores;
+import util.Mostra;
 
 public class BubbleSort implements Ordenador {
 
 	public static void main(String[] args) {
 		Integer[] vetor = new Integer[]{8,4,3,1,5,7,2,6,0};
 		
-		Vetores.mostrar(vetor);
+		Mostra.vetor(vetor);
 		
 		aplicar(vetor);
 		
-		Vetores.mostrar(vetor);
+		Mostra.vetor(vetor);
 	}
 	
 	public static Integer[] aplicar(Integer[] vetor) {

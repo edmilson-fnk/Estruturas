@@ -6,7 +6,7 @@ import java.util.Collections;
 import java.util.Comparator;
 import java.util.List;
 
-import util.Vetores;
+import util.Mostra;
 
 public class Java {
 
@@ -23,7 +23,7 @@ public class Java {
 		Integer[] vetor = new Integer[]{4,9,7,8,1,3,2,5,6};
 		
 		System.out.println("Antes:");
-		Vetores.mostrar(vetor);
+		Mostra.vetor(vetor);
 		
 		Comparator<Integer> comparatorMaluco = new Comparator<Integer>() {
 			@Override
@@ -63,7 +63,7 @@ public class Java {
 		Arrays.sort(vetor, comparator);
 		
 		System.out.println("Depois:");
-		Vetores.mostrar(vetor);
+		Mostra.vetor(vetor);
 	}
 
 	private static void ordenarLista() {
