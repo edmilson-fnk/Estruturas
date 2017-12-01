@@ -1,12 +1,12 @@
-package ed;
+package main;
 
-import arvore.Arvore;
-import arvore.operar.Operador;
+import arvore.ArvoreAVL;
+import arvore.operar.OperadorAVL;
 
 public class Executor {
 
 	public static void main(String[] args) {
-		Arvore arv = Operador.arvore(5,2,1,3,4,0);
+		ArvoreAVL arv = OperadorAVL.arvore(5,2,1,3,4,0,9,6,8,7);
 		
 		System.out.println("Antes");
 		arv.empilhar();
