@@ -5,7 +5,7 @@ import util.Mostra;
 public class BubbleSort implements Ordenador {
 
 	public static void main(String[] args) {
-		Integer[] vetor = new Integer[]{8,4,3,1,5,7,2,6,0};
+		Integer[] vetor = new Integer[]{5,7,3,8,1,2,9};
 		
 		Mostra.vetor(vetor);
 		

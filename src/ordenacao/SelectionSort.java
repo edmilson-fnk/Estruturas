@@ -5,7 +5,7 @@ import util.Mostra;
 public class SelectionSort implements Ordenador {
 
 	public static void main(String[] args) {
-		Integer[] vetor = new Integer[]{0,8,4,3,1,5,7,2,6};
+		Integer[] vetor = new Integer[]{8,4,3,1,5,7,2,6};
 		
 		Mostra.vetor(vetor);
 		
